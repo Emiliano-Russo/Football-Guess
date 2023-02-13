@@ -5,6 +5,8 @@ export const gameSlice = createSlice({
   name: "game",
   initialState: {
     isPlaying: false,
+    totalQuestions: 10,
+    asked: 0,
     playerToGuess: {
       name: "",
       age: "",
@@ -37,6 +39,15 @@ export const gameSlice = createSlice({
     },
     setFalseGuessedProperty: (state, action: PayloadAction<FootballerAttributes>) => {
       state.guessedData[action.payload] = false;
+    },
+    setTotalQuestions: (state, action: PayloadAction<number>) => {
+      state.totalQuestions = action.payload;
+    },
+    setAsked: (state, action: PayloadAction<number>) => {
+      state.asked = action.payload;
+    },
+    addOneAsked: (state) => {
+      state.asked += 1;
     },
   },
 });

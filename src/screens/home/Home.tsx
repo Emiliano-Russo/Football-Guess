@@ -11,14 +11,24 @@ export function Home() {
   return (
     <div className="App">
       <h1>Adivina el Jugador ⚽</h1>
-      <Button
-        onClick={() => {
-          //dispatch(startGame());
-          nav("/game");
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        Empezar
-      </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            //dispatch(startGame());
+            nav("/game");
+          }}
+        >
+          Empezar
+        </Button>
+        <Button>Opciones</Button>
+      </div>
     </div>
   );
 }
