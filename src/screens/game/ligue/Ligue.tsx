@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-import { BackToGameButton } from "../../../componentes/BackToGameButton";
+import { BackToGameButton } from "../../../components/BackToGameButton";
 
 const ligues = ["Premier Ligue", "Bundes Ligue", "Ligue One", "Serie A", "La Liga"];
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { BackToGameButton } from "../../../componentes/BackToGameButton";
-import { SuggestorInput } from "../../../componentes/SuggestorInput";
+import { BackToGameButton } from "../../../components/BackToGameButton";
+import { SuggestorInput } from "../../../components/SuggestorInput";
 
 const players = [
   { value: "Messi" },

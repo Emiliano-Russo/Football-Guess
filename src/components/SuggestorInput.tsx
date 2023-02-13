@@ -1,4 +1,4 @@
-import { AutoComplete, Button, ButtonProps } from "antd";
+import { AutoComplete, Button, ButtonProps, Select } from "antd";
 import { useState } from "react";
 
 interface Props {
@@ -22,6 +22,29 @@ export const SuggestorInput = (props: Props) => {
   var filteredOptions = props.options
     .filter(FilterMatch({ value: searchTerm }))
     .filter((_, index) => index < 5);
+
+  return (
+    <div>
+      <Select
+        showSearch
+        style={{ width: 200 }}
+        placeholder="Search to Select"
+        optionFilterProp="children"
+        filterOption={(input, option) =>
+          (option?.value.toLocaleLowerCase() ?? "").includes(input.toLowerCase())
+        }
+        filterSort={(optionA, optionB) =>
+          (optionA?.value ?? "").toLowerCase().localeCompare((optionB?.value ?? "").toLowerCase())
+        }
+        options={filteredOptions}
+        onSearch={(text: string) => setSearchTerm(text)}
+        onSelect={onSelect}
+      />
+      <Button type="primary" onClick={() => props.select(playerSelected)}>
+        Preguntar
+      </Button>
+    </div>
+  );
 
   return (
     <div>

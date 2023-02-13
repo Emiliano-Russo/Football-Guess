@@ -1,5 +1,5 @@
-import { BackToGameButton } from "../../../componentes/BackToGameButton";
-import { SuggestorInput } from "../../../componentes/SuggestorInput";
+import { BackToGameButton } from "../../../components/BackToGameButton";
+import { SuggestorInput } from "../../../components/SuggestorInput";
 
 const countries = [
   { value: "Argentina" },
@@ -16,7 +16,7 @@ export function Country() {
   return (
     <div className="App">
       <BackToGameButton />
-      <h1>Country Screen!</h1>
+      <h1>Pais</h1>
       <SuggestorInput
         options={countries}
         select={(name: string) => console.log("SELECTED!", name)}

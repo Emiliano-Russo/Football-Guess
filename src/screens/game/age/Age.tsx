@@ -1,6 +1,6 @@
 import { Button, Input, InputNumber } from "antd";
 import React, { useState } from "react";
-import { BackToGameButton } from "../../../componentes/BackToGameButton";
+import { BackToGameButton } from "../../../components/BackToGameButton";
 
 type ageBtn = "<" | "=" | ">";
 
