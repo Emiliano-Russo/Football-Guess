@@ -32,7 +32,7 @@ export const SuggestorInput = (props: Props) => {
         onSelect={onSelect}
       />
       <Button type="primary" onClick={() => props.select(playerSelected)}>
-        Select
+        Preguntar
       </Button>
     </div>
   );

@@ -27,7 +27,7 @@ export function Home() {
         >
           Empezar
         </Button>
-        <Button>Opciones</Button>
+        <Button>Reglas</Button>
       </div>
     </div>
   );
