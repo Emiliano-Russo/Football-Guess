@@ -1,37 +1,43 @@
 import axios from "axios";
 import { JSDOM } from "jsdom";
-import { PlayerPosition } from "./types";
+import { Ligue, Player, PlayerDTO, PlayerPosition } from "./types";
 
-export const heading = "data-header__headline-wrapper data-header__headline-wrapper--oswald";
+// const realMadrid = "https://www.transfermarkt.es/real-madrid/startseite/verein/418";
+// const psg = "https://www.transfermarkt.es/fc-paris-saint-germain/startseite/verein/583";
+// const sevilla = "https://www.transfermarkt.es/fc-sevilla/startseite/verein/368";
 
-async function playerList() {
-  const realMadrid = "https://www.transfermarkt.es/real-madrid/startseite/verein/418";
-  const psg = "https://www.transfermarkt.es/fc-paris-saint-germain/startseite/verein/583";
-  const resp = await axios.get(psg);
+// playerList(sevilla, "Sevilla", Ligue["La Liga"]);
+
+export async function playerList(link: string, club: string, ligue: Ligue) {
+  const resp = await axios.get(link);
   const dom = new JSDOM(resp.data);
   const div = dom.window.document.getElementById("yw1");
   const tbody = div?.children[1].children[1];
   let playersArr: Element[] = [];
+  const players: Player[] = [];
   if (tbody?.children) playersArr = Array.from(tbody?.children);
   playersArr.forEach((val) => {
-    getPlayerInfo(val);
+    const playerDto = getPlayerInfo(val);
+    const player: Player = { ...playerDto, club, ligue };
+    players.push(player);
   });
+  console.log(players);
+  return players;
 }
 
-playerList();
-
-function getPlayerInfo(player: Element) {
-  console.log("---------------");
+function getPlayerInfo(player: Element): PlayerDTO {
   const age = getAge(player);
   const name = getName(player);
   const picture = getPictureLink(player);
-  const nationality = getNationality(player);
+  const country = getNationality(player);
   const position = getPosition(player);
-  console.log("Name: " + name);
-  console.log("Age: " + age);
-  console.log("Picture: " + picture);
-  console.log("Nationality: " + nationality);
-  console.log("Position: " + position);
+  return {
+    age,
+    name,
+    picture,
+    country,
+    position,
+  };
 }
 
 function getPosition(player: Element) {
@@ -66,6 +72,8 @@ function getName(player: Element) {
   const table = Array.from(player.children[1].getElementsByTagName("table"));
   const aArr = table[0].getElementsByTagName("a");
   const name = aArr[1].textContent;
+  if (name == null) throw new Error("name its null");
+
   return name;
 }
 

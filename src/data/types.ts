@@ -8,11 +8,15 @@ export enum Ligue {
 
 export type PlayerPosition = "Arquero" | "Defensa" | "Central" | "Delantero";
 
-export interface Player {
-  name: string;
-  position: PlayerPosition;
-  birth: Date;
+export interface Player extends PlayerDTO {
   club: string;
-  country: string;
   ligue: Ligue;
+}
+
+export interface PlayerDTO {
+  age: number;
+  name: string;
+  picture: string;
+  country: string;
+  position: string;
 }
