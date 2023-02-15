@@ -1,17 +1,7 @@
 import React from "react";
 import { BackToGameButton } from "../../../components/BackToGameButton";
 import { SuggestorInput } from "../../../components/SuggestorInput";
-
-const clubs = [
-  { value: "Arsenal" },
-  { value: "Manchester City" },
-  { value: "Manchester United" },
-  { value: "Barcelona" },
-  { value: "Real Madrid" },
-  { value: "Paris Saint Germain" },
-  { value: "Valencia" },
-  { value: "Chelsea" },
-];
+import { clubs } from "../../../data/constants";
 
 export function Club() {
   return (
@@ -19,7 +9,9 @@ export function Club() {
       <BackToGameButton />
       <h1>Club</h1>
       <SuggestorInput
-        options={clubs}
+        options={clubs([]).map((club) => {
+          return { value: club };
+        })}
         select={function (name: string): void {
           console.log("selected!", name);
         }}

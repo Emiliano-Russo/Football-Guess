@@ -1,8 +1,7 @@
 import { Button } from "antd";
 import React, { useState } from "react";
+import { liguesName } from "../../../data/constants";
 import { BackToGameButton } from "../../../components/BackToGameButton";
-
-const ligues = ["Premier Ligue", "Bundes Ligue", "Ligue One", "Serie A", "La Liga"];
 
 export function Ligue() {
   const [selected, setSelected] = useState("Ligue One");
@@ -12,7 +11,7 @@ export function Ligue() {
       <BackToGameButton />
       <h1>Liga</h1>
       <div>
-        {ligues.map((ligue) => {
+        {liguesName.map((ligue) => {
           return (
             <Button
               style={{ background: selected == ligue ? "yellow" : "white", border: "none" }}

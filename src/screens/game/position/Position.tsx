@@ -1,11 +1,10 @@
 import { Button } from "antd";
 import React, { useState } from "react";
 import { BackToGameButton } from "../../../components/BackToGameButton";
-
-type Position = "Arquero" | "Defensa" | "Central" | "Delantero";
+import { PlayerPosition } from "../../../data/types";
 
 export function Position() {
-  const [position, setPosition] = useState<Position>("Defensa");
+  const [position, setPosition] = useState<PlayerPosition>("Defensa");
 
   return (
     <div className="App">
