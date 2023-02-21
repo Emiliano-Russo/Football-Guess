@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Footballer, FootballerAttributes } from "../types/footballer";
+import { Footballer, FootballerAttributes } from "../types/Footballer";
 
 export const gameSlice = createSlice({
   name: "game",
@@ -58,6 +58,9 @@ export const {
   setPlayerToGuess,
   setTrueGuessedProperty,
   setFalseGuessedProperty,
+  setTotalQuestions,
+  setAsked,
+  addOneAsked,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
