@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Footballer, FootballerAttributes } from "../types/Footballer";
+import { Ligue } from "../types/Ligue";
 
 export const gameSlice = createSlice({
   name: "game",
@@ -9,9 +10,9 @@ export const gameSlice = createSlice({
     asked: 0,
     playerToGuess: {
       name: "",
-      age: "",
+      age: -1,
       country: "",
-      ligue: "",
+      ligue: "Premier Lig",
       club: "",
       position: "",
     },

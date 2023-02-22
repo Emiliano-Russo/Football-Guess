@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BackToGameButton } from "../../../components/BackToGameButton";
 import { SuggestorInput } from "../../../components/SuggestorInput";
-import { clubs } from "../../../data/constants";
 
 export function Club() {
+  const [loading, setLoading] = useState(false);
+  const [clubsNames, setClubsNames] = useState<string[]>([]);
+
+  useEffect(() => {
+    setLoading(true);
+    getClubs()
+      .then((value) => {})
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  async function getClubs() {}
+
   return (
     <div className="App">
       <BackToGameButton />
       <h1>Club</h1>
-      <SuggestorInput
-        options={clubs([]).map((club) => {
-          return { value: club };
-        })}
-        select={function (name: string): void {
-          console.log("selected!", name);
-        }}
-      />
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <SuggestorInput
+          options={clubsNames.map((club) => {
+            return { value: club };
+          })}
+          select={function (name: string): void {
+            console.log("selected!", name);
+          }}
+        />
+      )}
     </div>
   );
 }

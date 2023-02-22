@@ -1,6 +1,6 @@
-import { country_list } from "../../../data/constants";
 import { BackToGameButton } from "../../../components/BackToGameButton";
 import { SuggestorInput } from "../../../components/SuggestorInput";
+import { country_list } from "../../../types/Countries";
 
 export function Country() {
   return (

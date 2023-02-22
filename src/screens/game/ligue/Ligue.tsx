@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React, { useState } from "react";
-import { liguesName } from "../../../data/constants";
 import { BackToGameButton } from "../../../components/BackToGameButton";
+import { liguesName } from "../../../types/Ligue";
 
 export function Ligue() {
   const [selected, setSelected] = useState("Ligue One");

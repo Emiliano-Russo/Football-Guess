@@ -1,5 +1,4 @@
-import { Ligue } from "../data/types";
-
+import { Ligue } from "./Ligue";
 interface LigueScrapping {
   league: Ligue;
   clubLinks: string[];
@@ -7,7 +6,7 @@ interface LigueScrapping {
 
 export const soccer_leagues_name_search_for_web_scrapping: LigueScrapping[] = [
   {
-    league: Ligue["Premier Ligue"],
+    league: "Premier Ligue",
     clubLinks: [
       "https://www.transfermarkt.es/manchester-united/startseite/verein/985",
       "https://www.transfermarkt.es/aston-villa/startseite/verein/405",
@@ -15,7 +14,7 @@ export const soccer_leagues_name_search_for_web_scrapping: LigueScrapping[] = [
     ],
   },
   {
-    league: Ligue["Bundes Ligue"],
+    league: "Bundes Ligue",
     clubLinks: [
       "https://www.transfermarkt.es/fc-bayern-munchen/startseite/verein/27",
       "https://www.transfermarkt.es/borussia-dortmund/startseite/verein/16",
@@ -23,7 +22,7 @@ export const soccer_leagues_name_search_for_web_scrapping: LigueScrapping[] = [
     ],
   },
   {
-    league: Ligue["La Liga"],
+    league: "La Liga",
     clubLinks: [
       "https://www.transfermarkt.es/real-madrid/startseite/verein/418",
       "https://www.transfermarkt.es/fc-barcelona/startseite/verein/131",

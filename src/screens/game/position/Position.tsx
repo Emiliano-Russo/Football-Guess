@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import React, { useState } from "react";
 import { BackToGameButton } from "../../../components/BackToGameButton";
-import { PlayerPosition } from "../../../data/types";
+import { PlayerPosition } from "../../../types/Position";
 
 export function Position() {
   const [position, setPosition] = useState<PlayerPosition>("Defensa");

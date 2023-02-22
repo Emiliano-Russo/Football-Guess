@@ -2,9 +2,8 @@ import { Button } from "antd";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Ligue, Player } from "../../data/types";
-//import { getAllPlayers, mock_getRandomPlayer } from "../../data";
 import { startGame } from "../../redux/gameSlice";
+import { Footballer } from "../../types/Footballer";
 
 export function Home() {
   const [loading, setLoading] = useState(false);
@@ -14,18 +13,18 @@ export function Home() {
   const start = async () => {
     setLoading(true);
     dispatch(startGame());
-    const soccerPlayer: Player = getRandomePlayer;
+    const soccerPlayer: Footballer = getRandomePlayer;
     nav("/game");
   };
 
-  const getRandomePlayer: Player = {
+  const getRandomePlayer: Footballer = {
     age: 35,
     club: "Paris Saint Germain",
     country: "Argentina",
-    ligue: Ligue["Ligue One"],
+    ligue: "Ligue One",
     name: "Lionel Messi",
-    picture: "",
     position: "Delantero",
+    pictureLink: "",
   };
 
   return (
