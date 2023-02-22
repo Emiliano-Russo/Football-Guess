@@ -8,7 +8,7 @@ export interface Footballer {
   ligue: Ligue;
   club: string;
   position: PlayerPosition;
-  pictureLink: string;
+  pictureLink?: string;
 }
 
 export type FootballerAttributes = "name" | "age" | "country" | "ligue" | "club" | "position";

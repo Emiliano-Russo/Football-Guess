@@ -12,7 +12,7 @@ export const gameSlice = createSlice({
       name: "",
       age: -1,
       country: "",
-      ligue: "Premier Lig",
+      ligue: "",
       club: "",
       position: "",
     },
@@ -36,7 +36,9 @@ export const gameSlice = createSlice({
       state.playerToGuess = action.payload;
     },
     setTrueGuessedProperty: (state, action: PayloadAction<FootballerAttributes>) => {
+      console.log("YES!!");
       state.guessedData[action.payload] = true;
+      console.log(state.guessedData);
     },
     setFalseGuessedProperty: (state, action: PayloadAction<FootballerAttributes>) => {
       state.guessedData[action.payload] = false;

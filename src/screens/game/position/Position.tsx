@@ -1,10 +1,15 @@
-import { Button } from "antd";
+import { Button, message } from "antd";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { BackToGameButton } from "../../../components/BackToGameButton";
+import { addOneAsked, setTrueGuessedProperty } from "../../../redux/gameSlice";
 import { PlayerPosition } from "../../../types/Position";
 
 export function Position() {
   const [position, setPosition] = useState<PlayerPosition>("Defensa");
+
+  const state = useSelector((state: any) => state.game);
+  const dispatch = useDispatch();
 
   return (
     <div className="App">
@@ -56,7 +61,20 @@ export function Position() {
           Delantero
         </Button>
       </div>
-      <Button type="primary" style={{ marginTop: "50px" }}>
+      <Button
+        type="primary"
+        style={{ marginTop: "50px" }}
+        onClick={() => {
+          dispatch(addOneAsked());
+          const realPosition = state.playerToGuess.position;
+          if (realPosition == position) {
+            message.success("Has acertado tu jugador es " + realPosition);
+            dispatch(setTrueGuessedProperty("position"));
+          } else {
+            message.error("Tu jugador no es " + position);
+          }
+        }}
+      >
         Preguntar
       </Button>
     </div>
