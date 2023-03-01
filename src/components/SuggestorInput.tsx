@@ -28,7 +28,7 @@ export const SuggestorInput = (props: Props) => {
       <Select
         showSearch
         style={{ width: 200 }}
-        placeholder="Search to Select"
+        placeholder="Buscar"
         optionFilterProp="children"
         filterOption={(input, option) =>
           (option?.value.toLocaleLowerCase() ?? "").includes(input.toLowerCase())

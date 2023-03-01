@@ -12,7 +12,7 @@ export function Country() {
   return (
     <div className="App">
       <BackToGameButton />
-      <h1>Pais</h1>
+      <h2>Pais</h2>
       <SuggestorInput
         options={country_list()}
         select={(name: string) => {

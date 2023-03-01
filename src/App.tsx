@@ -6,6 +6,63 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
 function App() {
+  const navs = [
+    {
+      path: "/game/country",
+      element: (
+        <>
+          <Main />
+          <Country />
+        </>
+      ),
+    },
+    {
+      path: "/game/club",
+      element: (
+        <>
+          <Main />
+          <Club />
+        </>
+      ),
+    },
+    {
+      path: "/game/ligue",
+      element: (
+        <>
+          <Main />
+          <Ligue />
+        </>
+      ),
+    },
+    {
+      path: "/game/name",
+      element: (
+        <>
+          <Main />
+          <Name />
+        </>
+      ),
+    },
+    {
+      path: "/game/position",
+      element: (
+        <>
+          <Main />
+          <Position />
+        </>
+      ),
+    },
+    {
+      path: "/game/age",
+      element: (
+        <>
+          <Main />
+          <Age />
+        </>
+      ),
+    },
+  ];
+
   return (
     <div className="App">
       <Provider store={store}>
@@ -13,12 +70,9 @@ function App() {
           <Routes>
             <Route path="/home" element={<Home />} />
             <Route path="/game" element={<Main />} />
-            <Route path="/game/country" element={<Country />} />
-            <Route path="/game/club" element={<Club />} />
-            <Route path="/game/ligue" element={<Ligue />} />
-            <Route path="/game/name" element={<Name />} />
-            <Route path="/game/position" element={<Position />} />
-            <Route path="/game/age" element={<Age />} />
+            {navs.map((v) => {
+              return <Route path={v.path} element={v.element} />;
+            })}
           </Routes>
         </BrowserRouter>
       </Provider>

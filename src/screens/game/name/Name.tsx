@@ -19,7 +19,7 @@ export function Name() {
   return (
     <div className="App">
       <BackToGameButton />
-      <h1>Nombre</h1>
+      <h2>Nombre</h2>
       <SuggestorInput options={players} select={(name: string) => console.log("SELECTED!", name)} />
     </div>
   );

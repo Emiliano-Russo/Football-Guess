@@ -16,9 +16,8 @@ export function Age() {
   return (
     <div className="App">
       <BackToGameButton />
-      <h1>Edad</h1>
+      <h2>Edad</h2>
       <div>
-        <h2>Tiene</h2>
         <div>
           <Button
             style={{
