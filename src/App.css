@@ -9,8 +9,10 @@
 }
 
 html {
-  background: url("https://wallpapercave.com/wp/wp2022774.jpg") no-repeat;
-  background-size: cover;
+  background: radial-gradient(#02214e 20%, transparent 21%, transparent 79%, #091324 80%);
+  background-size: 3em 3em;
+  background-color: #04062a;
+  opacity: 1;
   color: white;
 }
 
