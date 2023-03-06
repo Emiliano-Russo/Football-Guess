@@ -16,11 +16,10 @@ export function Main() {
 
   return (
     <div className="App">
-      <h1>
+      <h1 style={{}}>
         Preguntas {gameState.asked}/{gameState.totalQuestions}
       </h1>
       <ScreenGameNav />
-      {/* <GuessingData /> */}
     </div>
   );
 }

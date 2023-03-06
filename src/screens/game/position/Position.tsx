@@ -12,9 +12,8 @@ export function Position() {
   const dispatch = useDispatch();
 
   return (
-    <div className="App">
-      <BackToGameButton />
-      <h1>Posicion</h1>
+    <div className="App GuessPart">
+      <h2>Posicion</h2>
       <div>
         <Button
           style={{

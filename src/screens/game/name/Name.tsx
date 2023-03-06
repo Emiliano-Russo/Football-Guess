@@ -17,8 +17,7 @@ const players = [
 
 export function Name() {
   return (
-    <div className="App">
-      <BackToGameButton />
+    <div className="App GuessPart">
       <h2>Nombre</h2>
       <SuggestorInput options={players} select={(name: string) => console.log("SELECTED!", name)} />
     </div>

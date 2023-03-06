@@ -8,6 +8,15 @@ import { store } from "./redux/store";
 function App() {
   const navs = [
     {
+      path: "/game",
+      element: (
+        <>
+          <Main />
+          <h1>Selecciona una Categoría</h1>
+        </>
+      ),
+    },
+    {
       path: "/game/country",
       element: (
         <>
@@ -69,7 +78,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/game" element={<Main />} />
             {navs.map((v) => {
               return <Route path={v.path} element={v.element} />;
             })}

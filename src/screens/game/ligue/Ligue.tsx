@@ -12,9 +12,8 @@ export function Ligue() {
   const dispatch = useDispatch();
 
   return (
-    <div className="App" style={{}}>
-      <BackToGameButton />
-      <h1>Liga</h1>
+    <div className="App GuessPart">
+      <h2>Liga</h2>
       <div>
         {liguesName.map((ligue) => {
           return (

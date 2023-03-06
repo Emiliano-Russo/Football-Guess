@@ -14,8 +14,7 @@ export function Age() {
   const state = useSelector((state: any) => state.game);
 
   return (
-    <div className="App">
-      <BackToGameButton />
+    <div className="App GuessPart">
       <h2>Edad</h2>
       <div>
         <div>
@@ -23,6 +22,7 @@ export function Age() {
             style={{
               background: btnSelected == "<" ? "yellow" : "white",
               border: "none",
+              width: "150px",
             }}
             onClick={() => {
               setBtnSelected("<");
@@ -31,7 +31,11 @@ export function Age() {
             Menos de
           </Button>
           <Button
-            style={{ background: btnSelected == "=" ? "yellow" : "white", border: "none" }}
+            style={{
+              background: btnSelected == "=" ? "yellow" : "white",
+              border: "none",
+              width: "150px",
+            }}
             onClick={() => {
               setBtnSelected("=");
             }}
@@ -39,7 +43,11 @@ export function Age() {
             Exactamente
           </Button>
           <Button
-            style={{ background: btnSelected == ">" ? "yellow" : "white", border: "none" }}
+            style={{
+              background: btnSelected == ">" ? "yellow" : "white",
+              border: "none",
+              width: "150px",
+            }}
             onClick={() => {
               setBtnSelected(">");
             }}

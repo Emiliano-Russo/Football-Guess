@@ -18,9 +18,8 @@ export function Club() {
   async function getClubs() {}
 
   return (
-    <div className="App">
-      <BackToGameButton />
-      <h1>Club</h1>
+    <div className="App GuessPart">
+      <h2>Club</h2>
       {loading ? (
         <h1>Loading...</h1>
       ) : (

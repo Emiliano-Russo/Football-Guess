@@ -10,9 +10,8 @@ export function Country() {
   const dispatch = useDispatch();
 
   return (
-    <div className="App">
-      <BackToGameButton />
-      <h2>Pais</h2>
+    <div className="App GuessPart">
+      <h2>País</h2>
       <SuggestorInput
         options={country_list()}
         select={(name: string) => {
