@@ -2,9 +2,16 @@ import { Button, Input, InputNumber, message } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BackToGameButton } from "../../../components/BackToGameButton";
+import { getStyles } from "../../../global_styles/ButtonSelection.css";
 import { addOneAsked, setTrueGuessedProperty } from "../../../redux/gameSlice";
+import { isSameAge } from "./logic";
 
 type ageBtn = "<" | "=" | ">";
+const btns: { char: ageBtn; value: string }[] = [
+  { char: "<", value: "Menos de" },
+  { char: "=", value: "Igual" },
+  { char: ">", value: "Mas de" },
+];
 
 export function Age() {
   const [age, setAge] = useState<number>(25);
@@ -17,43 +24,25 @@ export function Age() {
     <div className="App GuessPart">
       <h2>Edad</h2>
       <div>
-        <div>
-          <Button
-            style={{
-              background: btnSelected == "<" ? "yellow" : "white",
-              border: "none",
-              width: "150px",
-            }}
-            onClick={() => {
-              setBtnSelected("<");
-            }}
-          >
-            Menos de
-          </Button>
-          <Button
-            style={{
-              background: btnSelected == "=" ? "yellow" : "white",
-              border: "none",
-              width: "150px",
-            }}
-            onClick={() => {
-              setBtnSelected("=");
-            }}
-          >
-            Exactamente
-          </Button>
-          <Button
-            style={{
-              background: btnSelected == ">" ? "yellow" : "white",
-              border: "none",
-              width: "150px",
-            }}
-            onClick={() => {
-              setBtnSelected(">");
-            }}
-          >
-            Mas de
-          </Button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {btns.map((val) => {
+            return (
+              <Button
+                style={getStyles(btnSelected == val.char)}
+                onClick={() => {
+                  setBtnSelected(val.char);
+                }}
+              >
+                {val.value}
+              </Button>
+            );
+          })}
         </div>
         <InputNumber
           type={"number"}
@@ -63,40 +52,17 @@ export function Age() {
               setAge(n);
             }
           }}
-          style={{ width: "80px" }}
+          style={{ width: "150px", marginTop: "30px" }}
         />
         <br></br>
         <Button
           type="primary"
-          style={{ marginTop: "40px" }}
+          style={{ marginTop: "10px", width: "150px" }}
           onClick={() => {
             dispatch(addOneAsked());
             const realAge = state.playerToGuess.age;
-            switch (btnSelected) {
-              case "=":
-                if (realAge == age) {
-                  dispatch(setTrueGuessedProperty("age"));
-                  message.success("Has acertado tu jugador tiene " + age + "!");
-                } else {
-                  message.error("Tu jugador no tiene " + age);
-                }
-                break;
-              case "<":
-                if (realAge < age) {
-                  message.success("Si tu jugador tiene menos de " + age);
-                } else {
-                  message.error("Tu jugador no tiene menos de " + age);
-                }
-                break;
-
-              case ">":
-                if (realAge > age) {
-                  message.success("Si tu jugador tiene mas de " + age);
-                } else {
-                  message.error("Tu jugador no tiene mas de " + age);
-                }
-                break;
-            }
+            const result: boolean = isSameAge({ btnSelected, realAge, age, message });
+            if (result) dispatch(setTrueGuessedProperty("age"));
           }}
         >
           Preguntar
