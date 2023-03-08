@@ -2,8 +2,9 @@ import { Button, message } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BackToGameButton } from "../../../components/BackToGameButton";
+import { getStyles } from "../../../global_styles/ButtonSelection.css";
 import { addOneAsked, setTrueGuessedProperty } from "../../../redux/gameSlice";
-import { PlayerPosition } from "../../../types/Position";
+import { PlayerPosition, playerPositionToString } from "../../../types/Position";
 
 export function Position() {
   const [position, setPosition] = useState<PlayerPosition>("Defensa");
@@ -13,52 +14,18 @@ export function Position() {
 
   return (
     <div className="App GuessPart">
-      <h2>Posicion</h2>
-      <div>
-        <Button
-          style={{
-            background: position == "Arquero" ? "yellow" : "white",
-            border: "none",
-          }}
-          onClick={() => {
-            setPosition("Arquero");
-          }}
-        >
-          Arquero
-        </Button>
-        <Button
-          style={{
-            background: position == "Defensa" ? "yellow" : "white",
-            border: "none",
-          }}
-          onClick={() => {
-            setPosition("Defensa");
-          }}
-        >
-          Defensa
-        </Button>
-        <Button
-          style={{
-            background: position == "Central" ? "yellow" : "white",
-            border: "none",
-          }}
-          onClick={() => {
-            setPosition("Central");
-          }}
-        >
-          Central
-        </Button>
-        <Button
-          style={{
-            background: position == "Delantero" ? "yellow" : "white",
-            border: "none",
-          }}
-          onClick={() => {
-            setPosition("Delantero");
-          }}
-        >
-          Delantero
-        </Button>
+      <h2>Posición</h2>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        {playerPositionToString.map((val) => (
+          <Button
+            style={getStyles(position == val)}
+            onClick={() => {
+              setPosition(val);
+            }}
+          >
+            {val}
+          </Button>
+        ))}
       </div>
       <Button
         type="primary"
