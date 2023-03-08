@@ -7,7 +7,7 @@ import { ScreenGameNav } from "../../../components/ScreenGameNav";
 import { Age } from "../age/Age";
 import { Club } from "../club/Club";
 import { Country } from "../country/Country";
-import { Ligue } from "../ligue/Ligue";
+import { LigueScreen } from "../ligue/Ligue";
 import { Name } from "../name/Name";
 import { Position } from "../position/Position";
 

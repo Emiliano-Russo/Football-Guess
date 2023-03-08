@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, Country, Club, Ligue, Name, Position, Age, Main } from "./screens";
+import { Home, Country, Club, LigueScreen, Name, Position, Age, Main } from "./screens";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
@@ -39,7 +39,7 @@ function App() {
       element: (
         <>
           <Main />
-          <Ligue />
+          <LigueScreen />
         </>
       ),
     },

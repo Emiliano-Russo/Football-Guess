@@ -1,4 +1,4 @@
-const btnSelectedColorBackground =
+export const btnSelectedColorBackground =
   "radial-gradient( 100% 100% at 90% 0%, #8931AB 0%, #1168FF 100% )";
 const letterColor = "white";
 
