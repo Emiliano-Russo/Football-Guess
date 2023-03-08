@@ -1,5 +1,5 @@
 export const btnSelectedColorBackground =
-  "radial-gradient( 100% 100% at 90% 0%, #8931AB 0%, #1168FF 100% )";
+  "linear-gradient(124deg, rgba(0,48,255,1) 0%, rgba(32,255,241,1) 100%)";
 const letterColor = "white";
 
 export function getStyles(isSelected) {

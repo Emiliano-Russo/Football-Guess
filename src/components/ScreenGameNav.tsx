@@ -46,7 +46,7 @@ export function ScreenGameNav() {
               width: "120px",
               background:
                 actualNav == v.nav
-                  ? "radial-gradient( 100% 100% at 70% 0%, #19A5A1 0%, #5468BB 90% )"
+                  ? "linear-gradient(90deg, rgba(255,0,116,1) 0%, rgba(255,136,32,1) 100%)"
                   : "radial-gradient( 100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100% )",
               color: "white",
             }}
